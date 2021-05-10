@@ -1,0 +1,78 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <title>ChartJS</title>
+  </head>
+
+  <body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.js"></script>
+	<h1>Housing Prices in the US historically</h1>
+    <div style="padding: 5%;">
+		<canvas id="myChart"></canvas>
+	</div>
+  </body>
+
+  <script>
+    var ctx = document.getElementById("myChart");
+
+    var lbls = [{% for item in labels %}
+					"{{item}}",
+					{% endfor %}];
+
+	var dates = [{% for item in dates %}
+	{{item}},
+	{% endfor %}];
+
+	
+
+
+
+	var config = 
+	{
+		type:"line",
+		data:
+		{
+			labels:dates,
+			datasets:[
+				{
+					label:"Los Angeles",
+					data:{{ la }},
+					backgroundColor:"rgba(230, 100, 100, 0.46)"
+				},
+				{
+					label:"Florida",
+					data:{{ fl }},
+					backgroundColor: "rgba(135, 227, 42, 0.46)",	
+				},
+				{
+					label:"San Fransisco",
+					data:{{ sf }},
+					backgroundColor: "rgba(125, 120, 200, 0.46)",	
+				},
+				{
+					label:"Washington DC",
+					data:{{ wa }},
+					backgroundColor: "rgba(232, 137, 215, 0.46)",	
+				},
+				{
+					label:"Boston",
+					data:{{ bo }},
+					backgroundColor: "rgba(216, 255, 74, 0.46)",	
+				},
+				
+			]
+		}
+	}
+
+	var chart = new Chart(ctx, config);
+
+
+
+  </script>
+</html>

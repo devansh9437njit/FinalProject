@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <title>US Statistics</title>
+</head>
+<body>
+    
+    <div class="container-fluid p-5">
+        <div class="jumbotron bg-primary">
+            <h1 class="display-3">US Real Estate Historical Data Visualization</h1>
+        </div>
+
+
+        <h5 class="display-5">
+            Select a starting and ending date
+        </h5>
+
+        <hr>
+
+        <form action="/search" method="POST">
+            <p class="mt-5">
+                <strong>
+                    Starting Date
+                </strong>
+            </p>
+            <p class="">Minimum 1st Januray 1987</p>
+            <input 
+                type="date" 
+                name="start" 
+                id="start" 
+                min="1987-01-01"
+                value="1987-01-01"> <br>
+    
+    
+            <p class="mt-5">
+                <strong>
+                    Ending Date
+                </strong>
+            </p>
+            <p class="">Maximum 1st Januray 2015</p>
+            <input 
+                type="date" 
+                name="end" 
+                id="end"
+                max="2015-01-01"
+                value="2015-01-01"
+                >
+
+            <br>
+            
+            <p class="mt-5">View One Value Per Year?</p>
+            <input type="checkbox" name="yearly" id="yearly">
+
+            <br>
+
+            <button type="submit" class="btn-dark btn-lg mt-5">
+                Search
+            </button>
+        </form>
+    </div>
+
+</body>
+</html>
